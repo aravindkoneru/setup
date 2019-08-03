@@ -45,7 +45,7 @@ git config --global user.name "Aravind Koneru"
 git config --global user.email "aravind.b.koneru@gmail.com"
 
 #Generate ssh keys
-ssh-keygen -t rsa 4096 -C "aravind.b.koneru@gmail.com"
+ssh-keygen -t rsa -b 4096 -C "aravind.b.koneru@gmail.com"
 ssh-add -L ~/.ssh/id_rsa
 
 pbcopy < ~/.ssh/id_rsa.pub
@@ -55,6 +55,12 @@ echo "ssh key copied to clipboard, add it to github"
 git clone https://github.com/aravindkoneru/dotfiles.git
 ln -s ~/dotfiles/.vimrc 
 ln -s ~/dotfiles/.vim 
+ln -s ~/dotfiles/.tmux.conf
+
+# download color themes
+cd ~/Downloads/
+git clone https://github.com/morhetz/gruvbox-contrib.git
+cd
 
 #set up pip
 sudo easy_install pip
@@ -66,4 +72,3 @@ chsh -s /usr/local/bin/fish
 
 #Install oh-my-fish
 curl -L https://get.oh-my.fish | fish
-omf install will
